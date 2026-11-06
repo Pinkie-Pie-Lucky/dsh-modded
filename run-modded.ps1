@@ -39,8 +39,8 @@ if ($globalPnpm) {
     & pnpm dsh $Mode
 }
 else {
-    $rtNode = Join-Path $env:USERPROFILE '.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe'
-    $rtPnpm = Join-Path $env:USERPROFILE '.dsh\dsh-runtimes\dsh-primary-runtime\dependencies\pnpm\bin\pnpm.mjs'
+    $rtNode = 'U:\dsh-official-home\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe'
+    $rtPnpm = 'U:\dsh-official-home\dsh-runtimes\dsh-primary-runtime\dependencies\pnpm\bin\pnpm.mjs'
     if ((Test-Path $rtNode) -and (Test-Path $rtPnpm)) {
         Write-Host '[modded] using DSH runtime pnpm' -ForegroundColor DarkGray
         & $rtNode $rtPnpm dsh $Mode
