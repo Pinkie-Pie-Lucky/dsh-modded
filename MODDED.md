@@ -41,7 +41,7 @@ pnpm config set registry https://registry.npmmirror.com/
 .\run-modded.ps1 -Mode headless  # 纯命令行
 ```
 
-- 默认家目录为 `U:\modded-home`，可用 `-Home` 参数自定义；
+- 默认家目录为 `U:\modded-home`，可用 `-HomeDir` 参数自定义；
 - 会话、设置、凭据都存这里，与官方版的 `~/.dsh` 完全隔离，两版可同时运行、互不干扰；
 - 模型接入：设置环境变量 `DEEPSEEK_API_KEY` 即可，无需账号登录。
 

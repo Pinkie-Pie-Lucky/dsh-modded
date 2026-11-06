@@ -3,14 +3,14 @@
 # Usage (from the repo root):
 #   .\run-modded.ps1                    # web UI
 #   .\run-modded.ps1 -Mode headless     # command line
-#   .\run-modded.ps1 -Home 'D:\my-home' # custom home dir
+#   .\run-modded.ps1 -HomeDir 'D:\my-home' # custom home dir
 #
 # One-time prerequisites:
 #   pnpm install
 #   pnpm run build
 
 param(
-    [string]$Home = 'U:\modded-home',
+    [string]$HomeDir = 'U:\modded-home',
     [ValidateSet('web', 'headless')]
     [string]$Mode = 'web'
 )
@@ -19,7 +19,7 @@ $ErrorActionPreference = 'Stop'
 
 # Isolated home dir: sessions/settings/credentials live here, fully separate
 # from the official ~/.dsh, so both can run at the same time.
-$env:DSH_HOME = $Home
+$env:DSH_HOME = $HomeDir
 New-Item -ItemType Directory -Force -Path $env:DSH_HOME | Out-Null
 Write-Host "[modded] DSH_HOME = $env:DSH_HOME" -ForegroundColor Cyan
 
