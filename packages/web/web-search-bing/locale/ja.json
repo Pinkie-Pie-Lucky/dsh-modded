@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Bing Web 検索",
+    "description": "Bing の公開検索結果ページを取得して解析し、ウェブ検索結果を提供します。"
+  }
+}

@@ -14,6 +14,29 @@
   color: var(--dsw-alias-label-primary);
 }
 
+/* A leading mark (the assistant's own avatar) turns the reply into a gutter
+   row: the mark column holds a fixed 28px slot so marks stay aligned across
+   replies, and the body takes the remaining width. The attribute is present
+   only while an entry occupies `conversation.chat.assistant.before`, so an
+   unoccupied seat keeps the ordinary full-width column. */
+.root[data-assistant-mark] {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.gutter {
+  display: flex;
+  flex: none;
+  justify-content: center;
+  width: 28px;
+}
+
+.root[data-assistant-mark] > .body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
 .body {
   display: flex;
   flex-direction: column;

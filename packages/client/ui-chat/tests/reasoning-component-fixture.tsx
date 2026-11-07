@@ -1,5 +1,5 @@
 /** Child-renderer stubs for component units; registry behavior uses the real runtime fixture. */
-import { createElement, type ComponentProps } from 'react'
+import { createElement, type ComponentProps, type ReactNode } from 'react'
 import { makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
 import { zh as commonZh } from '@deepseek-ai/dsh-client-locale/src/locales/zh.ts'
 import type { PropsRenderFactories } from '@deepseek-ai/dsh-client-ui-slots'
@@ -21,7 +21,12 @@ function content(input: ReasoningContentInput) {
 }
 
 /** Render the production child component without emulating a registry or its dispatch. */
-export const renderReasoningSlot: AssistantMarkdownProps['renderSlot'] = (key: string, input: object) => {
+export const renderReasoningSlot: AssistantMarkdownProps['renderSlot'] = (
+  key: string, input: object, options?: { fallback?: ReactNode },
+) => {
+  // The assistant leading-mark seat ships unoccupied: a component fixture
+  // renders its fallback (nothing) unless a test registers an occupant.
+  if (key === 'conversation.chat.assistant.before') return options?.fallback ?? null
   if (key !== 'conversation.chat.reasoning.body') throw new Error(`Unexpected reasoning Slot: ${key}`)
   return createElement(DefaultReasoningBody, {
     ...input, renderFactorySlot: renderReasoningFactory,

@@ -4,7 +4,9 @@ import type { PropsRenderSlots } from '@deepseek-ai/dsh-client-ui-slots'
 import type { ReactNode } from 'react'
 import { JsonBlock, MarkdownText } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { MarkdownFileMentions, MarkdownPathImages } from '@deepseek-ai/dsh-client-ui-primitives'
-import type { ChatNodeOwnerProps, ChatViewSlotProps, UseDisclosure, UsePresentation, UseGroupAction } from '../contract/slots.ts'
+import type {
+  AssistantBeforeOwnerProps, ChatNodeOwnerProps, ChatViewSlotProps, UseDisclosure, UsePresentation, UseGroupAction,
+} from '../contract/slots.ts'
 import type { AssistantBlock } from '../contract/snapshot.ts'
 import { markdownLabels } from '../markdown-labels.ts'
 import { ReasoningRow } from './ReasoningRow.tsx'
@@ -28,10 +30,17 @@ export function localPathMediaUrl(base: string, value: string): string | undefin
 }
 
 export interface AssistantMarkdownProps extends
-  Pick<PropsRenderSlots<'conversation.chat.reasoning.body' | 'conversation.chat.message.images'>, 'renderSlot'>,
+  Pick<PropsRenderSlots<
+    'conversation.chat.reasoning.body' | 'conversation.chat.message.images' | 'conversation.chat.assistant.before'
+  >, 'renderSlot'>,
   Pick<ChatNodeOwnerProps, 'loadImage'> {
   /** Render only the requested business portion, preserving original block indexes. */
   groupPart?: string | undefined
+  /**
+   * Owner values of this body's leading-mark seat. Omission renders no gutter,
+   * which keeps the body full-width for callers outside the reply node.
+   */
+  mark?: AssistantBeforeOwnerProps | undefined
   /** Stable Hook forwarded to each independently expandable reasoning block. */
   useDisclosure: UseDisclosure
   blocks: readonly AssistantBlock[]
@@ -57,7 +66,7 @@ export interface AssistantMarkdownProps extends
 /** Renders non-blank reasoning blocks as independent disclosures alongside the response. */
 export const AssistantMarkdown = memo(function AssistantMarkdown({
   blocks, streaming, textInteractionSource = false, interrupted, loadImage, groupPart, useDisclosure,
-  reasoningHidden = false, usePresentation, revealProcess, mentions, renderSlot, useGroupAction, t,
+  reasoningHidden = false, usePresentation, revealProcess, mentions, renderSlot, useGroupAction, t, mark,
 }: AssistantMarkdownProps) {
   // Stable per locale revision (t identity changes on switch): a fresh object
   // per render would rebuild MarkdownText's component table every chunk.
@@ -145,8 +154,15 @@ export const AssistantMarkdown = memo(function AssistantMarkdown({
         )
     }
   }
+  // The leading-mark seat is empty until an entry occupies it, and an
+  // unoccupied seat must not reserve gutter space: an empty registration
+  // renders no element, so the row keeps the full-width layout.
+  const gutter = mark === undefined
+    ? null
+    : renderSlot('conversation.chat.assistant.before', mark, { fallback: null })
   return (
-    <div className={css.root} data-streaming={streaming || undefined}>
+    <div className={css.root} data-assistant-mark={gutter === null ? undefined : ''} data-streaming={streaming || undefined}>
+      {gutter === null ? null : <div className={css.gutter}>{gutter}</div>}
       <div className={css.body}>
         {rendered}
         {interrupted && (groupPart === undefined || groupPart === 'response'

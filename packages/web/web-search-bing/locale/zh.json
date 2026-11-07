@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Bing 网页搜索",
+    "description": "抓取并解析 Bing 公开结果页来提供网页搜索结果。"
+  }
+}

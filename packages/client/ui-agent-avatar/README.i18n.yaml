@@ -1,0 +1,46 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/client/ui-agent-avatar/README.md
+/:
+  en: b286f29ca4b8dcf4
+  zh: 21dec53c3ec84e0e
+/deepseek-ai-dsh-client-ui-agent-avatar:
+  en: 8823fc5c35240459
+  zh: 4671449c79bc49d3
+/deepseek-ai-dsh-client-ui-agent-avatar/summary:
+  en: 928a6b5376b2c059
+  zh: 1ddbd255ab94fc1e
+/deepseek-ai-dsh-client-ui-agent-avatar/table-of-contents:
+  en: d152484eb41ac6b4
+  zh: 405b30feaf48c087
+/deepseek-ai-dsh-client-ui-agent-avatar/use-this-package:
+  en: f63301eb1de09b58
+  zh: 5a8783d988166cad
+/deepseek-ai-dsh-client-ui-agent-avatar/use-this-package/the-three-seats:
+  en: b8c5393585c3ec05
+  zh: f11a287f44a1b75d
+/deepseek-ai-dsh-client-ui-agent-avatar/use-this-package/replacing-the-identity:
+  en: 5eb90360df23deed
+  zh: 252aca0c87319a77
+/deepseek-ai-dsh-client-ui-agent-avatar/use-this-package/which-replies-carry-the-avatar:
+  en: 98c888b7061ba6bb
+  zh: 4fc61283c292e2f3
+/deepseek-ai-dsh-client-ui-agent-avatar/understand-the-implementation:
+  en: c46d61c8b523b7d7
+  zh: b3bd6deec99b7c40
+/deepseek-ai-dsh-client-ui-agent-avatar/further-exploration:
+  en: c98551f773d53347
+  zh: 3e0853dd9461da0e
+/deepseek-ai-dsh-client-ui-agent-avatar/model-experience:
+  en: 618008c7641070e7
+  zh: 7233febb4d92ccfb
+/deepseek-ai-dsh-client-ui-agent-avatar/model-experience/kv-cache-effect:
+  en: ca75c51c89c2c9b0
+  zh: f57cc48a1b5cbfa9
+/deepseek-ai-dsh-client-ui-agent-avatar/known-limitations-and-deferred-work:
+  en: 67a6db9ecaa35582
+  zh: 92a90e81c8f2bbb4
+/deepseek-ai-dsh-client-ui-agent-avatar/known-limitations-and-deferred-work/dev-note:
+  en: e67f633dc6fe7773
+  zh: 3bb0c20c93f16f98

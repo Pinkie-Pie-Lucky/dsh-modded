@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Bing web search",
+    "description": "Serves web search results by fetching and parsing Bing's public results page."
+  }
+}

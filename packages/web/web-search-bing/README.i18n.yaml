@@ -1,0 +1,94 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/web/web-search-bing/README.md
+/:
+  en: 678d1e96d2798847
+  zh: a322193c63807955
+/deepseek-ai-dsh-web-search-bing:
+  en: f3b91c9979843a8f
+  zh: 90677631a9b73289
+/deepseek-ai-dsh-web-search-bing/summary:
+  en: def75a7e02fdf42b
+  zh: d09f634c82572b9e
+/deepseek-ai-dsh-web-search-bing/table-of-contents:
+  en: d152484eb41ac6b4
+  zh: 09388d293f9be9cb
+/deepseek-ai-dsh-web-search-bing/use-this-package:
+  en: ea0309e806243ee3
+  zh: bb0a7994e8c64daf
+/deepseek-ai-dsh-web-search-bing/use-this-package/when-to-choose-it:
+  en: 909157c24f8cc110
+  zh: e71433181a45966d
+/deepseek-ai-dsh-web-search-bing/use-this-package/minimal-configuration:
+  en: 08bbca5e46d39a09
+  zh: 04364b10435dd473
+/deepseek-ai-dsh-web-search-bing/use-this-package/what-a-search-returns:
+  en: 5f8695e17c7db2d0
+  zh: 8b6a9fd75e25325a
+/deepseek-ai-dsh-web-search-bing/use-this-package/failures-and-recovery:
+  en: 353bf000ef34ead0
+  zh: 59f24c854ad14ba6
+/deepseek-ai-dsh-web-search-bing/understand-the-implementation:
+  en: 9842c69ad3636bb3
+  zh: 3cdc3f816cbdd0cb
+/deepseek-ai-dsh-web-search-bing/understand-the-implementation/design-philosophy:
+  en: 3a602b052b10b013
+  zh: e2fe77e94b862afb
+/deepseek-ai-dsh-web-search-bing/understand-the-implementation/source-map:
+  en: 41712780a5a87a3d
+  zh: 598ef6f721f0e6d3
+/deepseek-ai-dsh-web-search-bing/understand-the-implementation/request-flow:
+  en: bc7688baac108a34
+  zh: 1904c9979a7ff9d1
+/deepseek-ai-dsh-web-search-bing/further-exploration:
+  en: 5e946fb0810e523f
+  zh: 9adffa3a294ca6ec
+/deepseek-ai-dsh-web-search-bing/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/deepseek-ai-dsh-web-search-bing/model-experience/conversation-tool-result-indirectly:
+  en: 666f5753c99783ab
+  zh: b44328e99bcc45c9
+/deepseek-ai-dsh-web-search-bing/model-experience/conversation-tool-result-indirectly/what-the-model-sees:
+  en: 05581bc7bacb7031
+  zh: 1713360aa625d8fe
+/deepseek-ai-dsh-web-search-bing/model-experience/conversation-tool-result-indirectly/token-effect:
+  en: d42f9bace48919e2
+  zh: 07548f9da2a4ce68
+/deepseek-ai-dsh-web-search-bing/model-experience/conversation-tool-result-indirectly/kv-cache-effect:
+  en: f5d5f97a153f7c70
+  zh: f681f89596f500f5
+/deepseek-ai-dsh-web-search-bing/model-experience/fetched-page-markup:
+  en: 45e801b38e313754
+  zh: 163c3b20c830d5b9
+/deepseek-ai-dsh-web-search-bing/model-experience/fetched-page-markup/what-the-model-sees:
+  en: c59a622e52c1c628
+  zh: fee2b9f0fe24f25f
+/deepseek-ai-dsh-web-search-bing/model-experience/fetched-page-markup/token-effect:
+  en: 7794ef11a1247c9a
+  zh: 460497e46a27e1a4
+/deepseek-ai-dsh-web-search-bing/model-experience/fetched-page-markup/kv-cache-effect:
+  en: 1387c623586cc5d4
+  zh: 0e24b7c464bb14f3
+/deepseek-ai-dsh-web-search-bing/model-experience/conversation-tool-list-indirectly:
+  en: ddcce72a4a4e0def
+  zh: 338aa339f5708d7d
+/deepseek-ai-dsh-web-search-bing/model-experience/conversation-tool-list-indirectly/what-the-model-sees:
+  en: c520fcee53ff5bb7
+  zh: defa52fe3b556310
+/deepseek-ai-dsh-web-search-bing/model-experience/conversation-tool-list-indirectly/token-effect:
+  en: 3419bab2ee5d0cf5
+  zh: 3ca22263a8a6277c
+/deepseek-ai-dsh-web-search-bing/model-experience/conversation-tool-list-indirectly/kv-cache-effect:
+  en: 9823147c9b0da035
+  zh: 2117972c2a994d8f
+/deepseek-ai-dsh-web-search-bing/known-limitations-and-deferred-work:
+  en: 5bd4d12a571bd219
+  zh: bcba74709d64b3ce
+/deepseek-ai-dsh-web-search-bing/known-limitations-and-deferred-work/dev-note:
+  en: 7f775cc79dbce94b
+  zh: 12b8f68f9e7c48ca
+/deepseek-ai-dsh-web-search-bing/known-limitations-and-deferred-work/dev-note/generated-artifacts-that-a-new-package-still-needs:
+  en: 7bf29a4024c060eb
+  zh: 9201f134be0ca0a2

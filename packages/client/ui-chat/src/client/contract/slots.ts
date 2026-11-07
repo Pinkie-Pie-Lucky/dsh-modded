@@ -68,6 +68,21 @@ export interface AssistantActionOwnerProps {
   messageId: MessageId
 }
 
+/**
+ * Owner currency of the leading mark in one assistant reply's gutter. The mark
+ * precedes the reply body, so a registration gives the assistant a face
+ * without touching message content; the seat reads its own Session identity
+ * from the standard Session props.
+ */
+export interface AssistantBeforeOwnerProps {
+  /** Assistant step this body belongs to, within its Turn. */
+  readonly step: number
+  /** Whether this body carries its Turn's final reply rather than an earlier fragment. */
+  readonly final: boolean
+  /** Business portion this body renders, when the row is split into process and reply parts. */
+  readonly groupPart?: string | undefined
+}
+
 /** Stable quota failure codes retained in the Session log; both raise the frame-wide notice. */
 export type QuotaNoticeCode = 'QUOTA' | 'ACCOUNT_QUOTA'
 
@@ -458,6 +473,17 @@ declare module '@deepseek-ai/dsh-client-ui-slots' {
       kind: 'chain'
       scope: 'session'
       owner: UserBeforeOwnerProps
+    }
+    /**
+     * Leading mark of one assistant reply: a fixed-width gutter before the
+     * reply body, rendered only while an entry occupies it. A registration
+     * gives the assistant an avatar or brand glyph; without one the reply
+     * keeps its ordinary full-width layout and no gutter space appears.
+     */
+    'conversation.chat.assistant.before': {
+      kind: 'single'
+      scope: 'session'
+      owner: AssistantBeforeOwnerProps
     }
     /**
      * Renderer for one consecutive group of durable message images. The owner

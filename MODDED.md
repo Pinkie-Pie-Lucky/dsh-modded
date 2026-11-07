@@ -4,7 +4,9 @@
 
 ## 相对官方改了什么
 
-全部改动集中在 [`packages/bundle/base/cordis.patch.yml`](packages/bundle/base/cordis.patch.yml)（改的是所有 profile 共享的默认值，因此默认启动即魔改版，无官方/魔改并存问题）：
+### 行为默认值
+
+改动集中在 [`packages/bundle/base/cordis.patch.yml`](packages/bundle/base/cordis.patch.yml)（改的是所有 profile 共享的默认值，因此默认启动即魔改版，无官方/魔改并存问题）：
 
 | 改动 | 效果 |
 |------|------|
@@ -14,6 +16,15 @@
 | 关闭遥测 `session-telemetry-otel` | 同上 |
 | 关闭 DeepSeek 账号平台 | 不要求账号登录 |
 | 关闭账号登录适配器 | 仅用 API key 接入 |
+
+### 本地身份（阿墨）
+
+界面上的「谁在跟你说话」也改成了本地的：
+
+- [`packages/client/ui-chat`](packages/client/ui-chat) 新增助手回复的左侧槽位 `conversation.chat.assistant.before`；空置时不占位，因此不装身份包就和官方一致。
+- 新包 [`packages/client/ui-agent-avatar`](packages/client/ui-agent-avatar) 占用三个席位：回复头像、侧边栏品牌标记、侧边栏品牌名字。图稿是包内的 [`avatar.svg`](packages/client/ui-agent-avatar/src/client/assets/avatar.svg)（宣纸底＋墨色鲸），名字是 `AgentIdentityName.tsx` 里的 `AGENT_NAME`（阿墨）。
+- 该行在 [`packages/bundle/web-app/cordis.patch.yml`](packages/bundle/web-app/cordis.patch.yml) 的 `ui-agent-avatar` 处；删掉这一行就退回官方的鱼形标记与「本地构建」标签。
+- 注意：占住侧边栏品牌名字位后，外壳原本那行「本地构建 + commit 版本」的显示与点击复制会一并让位。
 
 改动已用 git 提交，`git log` 可查完整记录。
 

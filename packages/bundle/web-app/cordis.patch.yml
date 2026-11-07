@@ -17,7 +17,9 @@
 - id: system-prompt
   config:
     personaPrefix: >-
-      You are a coding agent powered by the {{model}} model.
+      You are an assistant powered by the {{model}} model. This line does not define
+      who you are — your identity, commitments and history live in your own memory
+      vault and reach you through AGENTS.md.
 
 # Full-text session search is opt-in (the base row's `openAt: never`). This
 # restatement keeps the Web values on one ephemeral in-memory index; a
@@ -339,6 +341,14 @@
 
     - id: ui-chat
       name: '@deepseek-ai/dsh-client-ui-chat'
+
+    # Local mod: the agent's own avatar in the assistant reply gutter. Chat
+    # declares `conversation.chat.assistant.before` and renders the gutter only
+    # while this row occupies it, so removing the row restores the ordinary
+    # full-width reply. Swap the image at
+    # packages/client/ui-agent-avatar/src/client/assets/avatar.svg.
+    - id: ui-agent-avatar
+      name: '@deepseek-ai/dsh-client-ui-agent-avatar'
 
     # Official occupants for the sidebar brand slots and the home whale frame layer.
     - id: ui-brand-official

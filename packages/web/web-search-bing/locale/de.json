@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Bing-Websuche",
+    "description": "Liefert Websuchergebnisse, indem die öffentliche Bing-Ergebnisseite abgerufen und ausgewertet wird."
+  }
+}

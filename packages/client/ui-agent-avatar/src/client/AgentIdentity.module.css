@@ -1,0 +1,28 @@
+/* 阿墨的界面身份：回复槽位里的正圆头像、侧边栏品牌行里的印记与名字。
+   印记自带宣纸底色，因此明暗主题下都不需要额外的对比处理；头像容器与
+   图片都保持正圆（ui-radius：全圆声明同一规则内配对 `corner-shape: round`）。 */
+
+.avatar {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  corner-shape: round;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.mark {
+  display: block;
+  border-radius: 50%;
+  corner-shape: round;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* 侧边栏品牌行自己提供 18px/600、行高 24px 与字距；这里只补上不许换行，
+   让两字名字在收窄的侧边栏里也不折行。 */
+.name {
+  white-space: nowrap;
+}

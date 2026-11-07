@@ -1,0 +1,16 @@
+/* The agent's leading mark: one circular image in the reply gutter that Chat
+   reserves for `conversation.chat.assistant.before`. The container and the
+   image both stay circular (ui-radius: full-round declarations pair with
+   `corner-shape: round`), and the fixed 24px edge matches the reply's first
+   line box so the mark reads as part of the opening line. */
+
+.avatar {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  corner-shape: round;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+}

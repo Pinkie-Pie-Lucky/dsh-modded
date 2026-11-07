@@ -1,6 +1,8 @@
 import { memo, useCallback, useMemo } from 'react'
 import type { InjectFace, PropsRenderSlots } from '@deepseek-ai/dsh-client-ui-slots'
-import type { ChatFileMentions, ChatNodeViewProps, PresentationInjected, TurnTailOwnerProps } from '../contract/slots.ts'
+import type {
+  AssistantBeforeOwnerProps, ChatFileMentions, ChatNodeViewProps, PresentationInjected, TurnTailOwnerProps,
+} from '../contract/slots.ts'
 import { AssistantMarkdown } from './AssistantMarkdown.tsx'
 
 /** Business readers owned by the assistant renderer's existing Slot registration. */
@@ -12,7 +14,9 @@ export interface AssistantNodeInjected extends PresentationInjected {
 }
 
 type AssistantNodeViewProps = ChatNodeViewProps<'assistant-step'> & InjectFace<AssistantNodeInjected>
-  & PropsRenderSlots<'conversation.chat.reasoning.body' | 'conversation.chat.message.images'>
+  & PropsRenderSlots<
+    'conversation.chat.reasoning.body' | 'conversation.chat.message.images' | 'conversation.chat.assistant.before'
+  >
 
 /** Streaming, settled, and interrupted Assistant states share one keyed renderer instance. */
 export const AssistantNodeView = memo(function AssistantNodeView({
@@ -46,10 +50,18 @@ export const AssistantNodeView = memo(function AssistantNodeView({
       : turnProcess.spec.answerStep === data.step && turnProcess.spec.inlineReasoning)
     && !turnProcess.open
   const revealProcess = useCallback(() => { turnProcess?.setOpen(true) }, [turnProcess])
+  // The leading-mark seat decides for itself whether a fragment deserves a
+  // mark; the reply node only reports which fragment this body is.
+  const mark = useMemo<AssistantBeforeOwnerProps>(() => ({
+    step: data.step,
+    final: data.finalNode !== undefined,
+    ...groupPart === undefined ? {} : { groupPart },
+  }), [data.step, data.finalNode, groupPart])
   return (
     <AssistantMarkdown
       blocks={data.blocks}
       groupPart={groupPart}
+      mark={mark}
       useDisclosure={useDisclosure}
       streaming={data.status === 'running'}
       textInteractionSource={data.status === 'settled' && data.finalNode?.messageId !== undefined}
