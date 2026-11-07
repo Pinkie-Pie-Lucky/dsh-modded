@@ -278,8 +278,10 @@ describe('web-search-bing plugin', () => {
     const provider = new BingSearchProvider(options())
     expect(provider.id).toBe('bing')
     expect(provider.title).toBe('Bing')
+    const { description } = provider
+    if (typeof description !== 'object') throw new Error('description must be a localized record')
     for (const language of ['en', 'zh', 'ja', 'es', 'fr', 'de', 'ru', 'pt']) {
-      expect(provider.description[language]).toBeTruthy()
+      expect(description[language]).toBeTruthy()
     }
   })
 
