@@ -7,9 +7,11 @@ import type { Context as ClientContext } from '@deepseek-ai/cordis'
 import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
 import type {} from '@deepseek-ai/dsh-client-ui-chat/client'
 import type {} from '@deepseek-ai/dsh-client-ui-sidebar/client'
+import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
 import { AgentAvatarMark } from './AgentAvatarMark.tsx'
 import { AgentIdentityMark } from './AgentIdentityMark.tsx'
 import { AgentIdentityName } from './AgentIdentityName.tsx'
+import { AgentHeroMark } from './AgentHeroMark.tsx'
 
 /** Required service: the UI slot registry. */
 export const inject = ['slots']
@@ -25,4 +27,6 @@ export function apply(ctx: ClientContext): void {
     { name: 'sidebar.brand.mark' }, AgentIdentityMark))
   ctx.slots.inject('sidebar.brand.name', () => ctx.slots.register(
     { name: 'sidebar.brand.name' }, AgentIdentityName))
+  ctx.slots.inject('conversation.hero.brand.mark', () => ctx.slots.register(
+    { name: 'conversation.hero.brand.mark' }, AgentHeroMark))
 }

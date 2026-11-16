@@ -411,6 +411,12 @@ export default defineConfig({
         // Command executor lifecycle branches need the same maturing lanes.
         // TODO(gui): cover and remove with the client test lane above.
         'packages/interaction/commands/src/index.ts',
+        // The Windows desktop tools drive this machine's own desktop session:
+        // their whole behavior is a PowerShell process plus Win32 input, which a
+        // unit process cannot observe without the desktop it acts on. Their
+        // correctness signal is a real capture/click/type round trip on a
+        // Windows host, not an instrumented unit run.
+        'packages/experimental/tool-desktop/src/*',
         ...windowsUnsupportedCoveragePackages.map(path => `${path}/src/**/*.ts`),
         ...windowsOnlyCoverageExclusions,
         ...windowsRunnerCoverageExclusions,

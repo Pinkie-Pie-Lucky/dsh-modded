@@ -350,6 +350,13 @@
     - id: ui-agent-avatar
       name: '@deepseek-ai/dsh-client-ui-agent-avatar'
 
+    # Local mod: a live session outline in the right sidebar, one collapsible
+    # section per Turn (prompt → tool calls → conclusion). Built from the Chat
+    # projection with no model call, so it costs nothing to keep open.
+    # Source: packages/client/ui-session-mindmap.
+    - id: ui-session-mindmap
+      name: '@deepseek-ai/dsh-client-ui-session-mindmap'
+
     # Official occupants for the sidebar brand slots and the home whale frame layer.
     - id: ui-brand-official
       name: '@deepseek-ai/dsh-client-ui-brand-official'

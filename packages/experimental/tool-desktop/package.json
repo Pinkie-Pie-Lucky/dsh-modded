@@ -1,0 +1,36 @@
+{
+  "name": "@deepseek-ai/dsh-tool-desktop",
+  "description": "Windows desktop tools: screen capture, window listing, and pointer/keyboard input",
+  "version": "0.2.2-rc.1",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./src/*": "./src/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/types/**/*.js",
+    "lib/types/**/*.d.ts"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "workspace:~",
+    "@deepseek-ai/dsh-attachment": "workspace:*",
+    "@deepseek-ai/dsh-llm": "workspace:*",
+    "@deepseek-ai/dsh-tools": "workspace:*"
+  },
+  "devDependencies": {
+    "@deepseek-ai/cordis": "workspace:~",
+    "@deepseek-ai/dsh-attachment": "workspace:*",
+    "@deepseek-ai/dsh-llm": "workspace:*",
+    "@deepseek-ai/dsh-tools": "workspace:*",
+    "@types/node": "^24.0.0"
+  }
+}
